@@ -19,10 +19,10 @@ public class KafkaConfiguration {
 	public ConsumerFactory<String, String> consumerFactory(){
 		Map<String, Object> config = new HashMap<>();
 		
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
+		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "001");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JavaDeserializer.class);
 		
 		return new DefaultKafkaConsumerFactory<>(config);
 	}
